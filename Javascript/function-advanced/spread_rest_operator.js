@@ -44,7 +44,7 @@ console.log(ans);
 Rest:
 =====
 Rest operator is used to collect the remaining parameters. it stores the remaining
-parameters in array. Rest operator must be the last parameter.
+parameters in array or object. Rest operator must be the last parameter.
 
 Spread:
 =======
