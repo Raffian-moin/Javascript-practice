@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Selection</title>
+</head>
+<body>
+    <h1 id="title">This is title</h1>
+    <h1 id="title">This is another title</h1>
+
+    <div class="mydiv">
+        <div class="mydiv" id="secondDiv">
+            Second Div
+            <div class="mydiv" id="thirdDiv">
+                Hello, This is div
+            </div>
+        </div>
+    </div>
+
+<script>
+    // Get element by Id. always make the ID unique
+    let getById = document.getElementById("title");
+    getById.style.background = "green";
+
+    // querySelector selects single element by css selector
+    let getByQuerySelector = document.querySelector("#title")
+    getByQuerySelector.style.background = "red";
+
+    // querySelectorAll selects all matching elements by css selector
+    let getByQuerySelectorAll = document.querySelectorAll("#title");
+    for (const element of getByQuerySelectorAll) {
+        element.style.background = "yellow";
+    }
+
+    // For matches() we first need to select the element
+    // then do some checking with css selector
+    // matches always returns boolean
+    for (const element of getByQuerySelectorAll) {
+        if (element.matches("#title")) {
+            element.style.background = "blue";
+        }
+    }
+
+    // closest() always search for matching parent including the element itself
+    let findClosest = document.querySelector('#thirdDiv');
+    // the element itself was matched
+    findClosest.closest('.mydiv').style.background = "red"
+    // second element which was parent of third div matched
+    findClosest.closest('#secondDiv').style.background = "yellow"
+    
+</script>
+</body>
+</html>
