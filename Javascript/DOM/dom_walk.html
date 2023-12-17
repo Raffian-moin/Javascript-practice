@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title">This is title</h1>
+    <table id="table">
+        <tr>
+            <td>one</td>
+            <td>two</td>
+        </tr>
+        <tr>
+            <td>three</td>
+            <td>four</td>
+        </tr>
+    </table>
+    <script>
+        // childnodes lists all nodes, including text and comment nodes
+        console.log(document.body.childNodes);
+        // childnodes lists only element nodes
+        console.log(document.body.children);
+        // nextElementSibling enables to access next sibling element of current node
+        console.log(document.body.children[0].nextElementSibling);
+        // nextElementSibling enables to access first child
+        console.log(document.body.firstElementChild);
+        // nextElementSibling enables to access last child
+        console.log(document.body.lastElementChild);
+    </script>
+</body>
+
+</html>
