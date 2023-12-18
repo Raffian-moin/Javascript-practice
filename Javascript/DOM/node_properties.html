@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Nodes</title>
+</head>
+<body>
+    <h1><b>This is title</b></h1>
+    <script>
+        let element = document.querySelector("h1");
+        // DOM nodes form hierarchy
+        // DOM Tags inherit from HTMLElement --> Element --> Node --> EventTarget --> Object
+        // So we can see that Object is the top most parent
+        console.log(element instanceof HTMLHeadingElement);
+        console.log(element instanceof HTMLElement);
+        console.log(element instanceof Element);
+        console.log(element instanceof Node);
+        console.log(element instanceof EventTarget);
+
+        // To see the DOM Object of a node
+        // We can see the properties of a node
+        console.dir(element);
+        // nodeName is exists for tags, text, comment nodes
+        console.log(element.nodeName);
+        // nodeName is exists for tag
+        console.log(element.tagName);
+        // innerHTML grabs everything inside tha tag
+        // here it will also grab the <b> tag
+        console.log(element.innerHTML);
+        // innerText only grabs the text, excludes tags
+        console.log(element.innerText);
+        element.innerHTML = "This is title";
+        // Just like innerHTML and innerText for tags
+        // data and nodeValue exists for text nodes
+        console.log(element.firstChild.data);
+        console.log(element.firstChild.nodeValue);
+    </script>
+</body>
+</html>
