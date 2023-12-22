@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style and Classes</title>
+    <style>
+        .alert {
+            padding: 15px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            color: #3c763d;
+            background-color: #dff0d8;
+        }
+
+        .myColor {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv">
+        This is a DIV
+    </div>
+
+    <script>
+        // For styling we can use classes or use style attribute
+        let SelectDiv = document.querySelector("#myDiv");
+
+        // className adds the replace the existing classes and adds the class/classes
+        SelectDiv.className = "alert myColor";
+        // with classList we can append class/classes to the existing classes
+        SelectDiv.classList.add("alert");
+
+        // We can also work with css with style
+        SelectDiv.style.color = "red";
+        // if multi word attributes then it is written in camelCased
+        SelectDiv.style.backgroundColor = "black";
+
+        // style totally replace the existing styling
+        // so If we can add multiple css attribute we can use cssText
+        SelectDiv.style.cssText=`
+            color: red;
+            background-color: yellow;
+            width: 100px;
+            text-align: center;
+        `;
+
+        // If we read css attribute value we can use getComputedStyle
+        console.log(getComputedStyle(SelectDiv).color);
+    </script>
+</body>
+</html>
