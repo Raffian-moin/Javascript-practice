@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Modification</title>
+    <style>
+        .alert {
+            padding: 15px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            color: #3c763d;
+            background-color: #dff0d8;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        // Create an element
+        let pTag = document.createElement('p');
+        // insert something inside element
+        pTag.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
+
+        let bTag = document.createElement('b');
+        bTag.innerHTML = "<p class='alert'>hello Raffian</p>";
+
+        let selectDiv = document.querySelector("div");
+        // add an element inside the selected element but at the end
+        selectDiv.append(pTag);
+        // add an element outside the selected element
+        selectDiv.after(bTag)
+        // append(), after() etc methods will only add as a text if we try 
+        // to insert like this
+        selectDiv.after('<b>hello</b>')
+        // Treat an element as element not a text 
+        // For this we use insertAdjacent... etc methods
+        selectDiv.insertAdjacentHTML('beforebegin', '<b>Text beforebegin with insertAdjacentHTML</b>');
+        selectDiv.insertAdjacentHTML('afterend', '<p>Text afterend with insertAdjacentHTML</p>');
+
+        setTimeout(() => {
+            // Remove a node by remove()
+            bTag.remove();
+        }, 2000);
+    </script>
+</body>
+</html>
