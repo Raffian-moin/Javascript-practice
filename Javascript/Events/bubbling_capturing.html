@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body * {
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 
+        Bubbling is the concept in which if an element has a event and 
+        then it is executed and if any of it's parents has similar event then they also get executed 
+    -->
+    <!-- here if we click on p tag then form also gets executed -->
+    <form onclick="alert('form')">FORM
+        <div ondblclick="alert('div')">DIV
+            <p onclick="alert('p')">P</p>
+        </div>
+    </form>
+
+    <form id="myForm">FORM
+        <div>DIV
+            <p>P</p>
+        </div>
+    </form>
+
+    <script>
+        
+        // event.target always refers to the actual element that was
+        // responsible for event execution
+        // it can be the parent or any child element
+        // this always refers to the element where the eventHandler is attached
+        // this.tagName always refers to form element
+        function handleFormClick(event) {
+            alert("target = " + event.target.tagName + ", this=" + this.tagName);
+        }
+
+        
+        const formElement = document.getElementById('myForm');
+        // here we assigned the event handler on form tag
+        // if we click on any of it's child then the event also get executed
+        formElement.addEventListener('click', handleFormClick);
+
+    </script>
+</body>
+</html>
